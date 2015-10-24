@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Material Design Bootstrap Template</title>
+    <title>Zbuduj swoją grę!</title>
 
     <!-- Material Design Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -38,8 +38,8 @@
             <div class="item active">
                 <div class="carousel-caption hidden-xs">
                     <div data-animation="animated fadeInDown nav">
-                        <h1>Stwórz swoją własną grę reklamową!</h1>
-                        <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
+                        <h1>Stwórz swoją własną grę!</h1>
+                        <h3>Wybierz szablon, dodaj własne grafiki a my zrobimy resztę!</h3>
                         <a type="button" class="btn btn-info waves-effect waves-light" href="#info">Dowiedz się więcej</a>
                         <a type="button" class="btn btn-success waves-effect waves-light" href="#game-template-carousel">Rozpocznij</a>
                     </div>
@@ -79,10 +79,10 @@
             <!-- First slide -->
             <div class="item active">
                 <div class="carousel-caption hidden-xs">
-                    <div data-animation="fadeInDown">
+                    <div data-animation="animated fadeInDown">
                         <h1>Droplet</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -91,10 +91,10 @@
             <!-- Second slide -->
             <div class="item">
                 <div class="carousel-caption hidden-xs">
-                    <div data-animation="fadeInDown">
+                    <div data-animation="animated fadeInDown">
                         <h1>Arcanoid</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -103,10 +103,10 @@
             <!-- Third slide -->
             <div class="item">
                 <div class="carousel-caption hidden-xs">
-                    <div data-animation="fadeInDown">
+                    <div data-animation="animated fadeInDown">
                         <h1>Puzzle</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -130,34 +130,28 @@
     <!-- ################ /Game templates ################ -->
 
 
-    <!-- Footer -->
-    <footer class="page-footer indigo darken-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2015 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
 
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Email</h4>
+					</div>
+					<div class="modal-body">
+						<p>Email</p><input></input>
+						<p>Powtórz email</p><input></input>
+					</div>
+					<div>
+						<a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+						<a type="button" class="btn btn-cancel waves-effect waves-light" data-dismiss="modal">Zamknij</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
     <!-- SCRIPTS -->
 
@@ -169,9 +163,6 @@
 
     <!-- Material Design Bootstrap -->
     <script type="text/javascript" src="js/mdb.js"></script>
-
-    <!-- Bluehack -->
-    <script type="text/javascript" src="js/bluehack.js"></script>
 
 
 </body>
