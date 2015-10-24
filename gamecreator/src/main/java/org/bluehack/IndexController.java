@@ -3,10 +3,13 @@ package org.bluehack;
 import org.bluehack.game.CreateNewGameUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Map;
 
 @Controller
@@ -36,22 +39,11 @@ public class IndexController {
 
     @RequestMapping(value="/game/create", method= RequestMethod.POST)
     public String createGame(@RequestParam("droplet_image") MultipartFile dropletImage,
-                             @RequestParam("basket_image") MultipartFile basketImage) {
+                             @RequestParam("basket_image") MultipartFile basketImage) throws IOException {
 
-        try {
-            byte[] dropletImageByteArray = dropletImage.getBytes();
-            InputStream dropletImageinputStream = new ByteArrayInputStream(dropletImageByteArray);
-
-            byte[] basketImageByteArray = basketImage.getBytes();
-            InputStream basketImageinputStream = new ByteArrayInputStream(dropletImageByteArray);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return createNewGame.create()
-                .transform(gameId -> "redirect:/play/" + gameId)
-                .or("redirect:/anavailable");
+        return createNewGame.create(dropletImage.getInputStream(), basketImage.getInputStream())
+                .map(gameId -> "redirect:/play/" + gameId)
+                .orElseGet(() -> "redirect:/anavailable");
     }
 
     @RequestMapping("/play/{gameId}")
