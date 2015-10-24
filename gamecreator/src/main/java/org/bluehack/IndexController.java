@@ -25,7 +25,17 @@ public class IndexController {
     public String index() {
         return "index";
     }
+    
+    @RequestMapping("/order")
+    public String order() {
+        return "order";
+    }
 
+    @RequestMapping("/confirm")
+    public String confirm() {
+        return "confirm";
+    }
+    
     @RequestMapping("/signin")
     public String signin() {
         return "signin";
