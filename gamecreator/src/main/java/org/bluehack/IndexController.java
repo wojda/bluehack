@@ -15,4 +15,9 @@ public class IndexController {
     public String signin() {
         return "signin";
     }
+
+    @RequestMapping("/creator")
+    public String creator() {
+        return "creator";
+    }
 }
