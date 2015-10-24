@@ -1,6 +1,7 @@
 package org.bluehack;
 
 import org.bluehack.game.CreateNewGameUseCase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,12 @@ import java.util.Map;
 
 @Controller
 public class IndexController {
+    private CreateNewGameUseCase createNewGame;
+
+    @Autowired
+    public IndexController(CreateNewGameUseCase createNewGame) {
+        this.createNewGame = createNewGame;
+    }
 
     @RequestMapping("/")
     public String index() {
@@ -27,7 +34,7 @@ public class IndexController {
 
     @RequestMapping("/game/create")
     public String createGame() {
-        return new CreateNewGameUseCase().create()
+        return createNewGame.create()
                 .transform(gameId -> "redirect:/play/" + gameId)
                 .or("redirect:/anavailable");
     }
