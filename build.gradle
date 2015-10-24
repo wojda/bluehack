@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
+
+
+task stage {
+  dependsOn build
+}
