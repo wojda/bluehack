@@ -27,11 +27,11 @@ public class CreateNewGameUseCase {
         this.resourceLoader = resourceLoader;
     }
 
-    public Optional<String> create(InputStream dropletImage, InputStream basketImage) {
+    public Optional<String> create(InputStream backgroundImage, InputStream dropletImage, InputStream basketImage) {
         String gameId = generateNewGameId();
 
         return copyGameTemplateToDestination(gameId)
-                .flatMap(gamePath -> replaceImages(gamePath, dropletImage, basketImage))
+                .flatMap(gamePath -> replaceImages(gamePath, backgroundImage, dropletImage, basketImage))
                 .map(gamePath -> gameId);
     }
 
@@ -55,10 +55,12 @@ public class CreateNewGameUseCase {
         return Optional.of(gameDirectory);
     }
 
-    private Optional<Path> replaceImages(Path gamePath, InputStream dropletImage, InputStream basketImage) {
+    private Optional<Path> replaceImages(Path gamePath, InputStream backgroundImage, InputStream dropletImage, InputStream basketImage) {
+        Path backgroundImageTarget = gamePath.resolve(Paths.get("dist", "assets", "bg.png"));
         Path dropletImageTarget = gamePath.resolve(Paths.get("dist", "assets", "drop.png"));
         Path playerImageTarget = gamePath.resolve(Paths.get("dist", "assets", "player.png"));
         try {
+            Files.copy(backgroundImage, backgroundImageTarget, StandardCopyOption.REPLACE_EXISTING);
             Files.copy(dropletImage, dropletImageTarget, StandardCopyOption.REPLACE_EXISTING);
             Files.copy(basketImage, playerImageTarget, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

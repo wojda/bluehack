@@ -48,10 +48,11 @@ public class IndexController {
 
 
     @RequestMapping(value="/game/create", method= RequestMethod.POST)
-    public String createGame(@RequestParam("droplet_image") MultipartFile dropletImage,
-                             @RequestParam("basket_image") MultipartFile basketImage) throws IOException {
+    public String createGame(@RequestParam("background_image") MultipartFile backgroundImage,
+                            @RequestParam("droplet_image") MultipartFile dropletImage,
+                            @RequestParam("basket_image") MultipartFile basketImage) throws IOException {
 
-        return createNewGame.create(dropletImage.getInputStream(), basketImage.getInputStream())
+        return createNewGame.create(backgroundImage.getInputStream(), dropletImage.getInputStream(), basketImage.getInputStream())
                 .map(gameId -> "redirect:/play/" + gameId)
                 .orElseGet(() -> "redirect:/anavailable");
     }

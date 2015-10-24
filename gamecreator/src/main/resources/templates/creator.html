@@ -32,48 +32,36 @@
 
 <!-- Page Content -->
 <div class="container">
+    <form action="/game/create" method="post" enctype="multipart/form-data">
 
     <div class="row">
-        <!-- Blog Entries Column -->
         <div class="col-md-offset-1 col-md-9">
             <img class="img-responsive z-depth-2" src="http://www.dsogaming.com/wp-content/uploads/2012/02/ForestPlanet-1.jpg" alt="">
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
 
-            <form action="/game/create" method="post" enctype="multipart/form-data">
                 <span class="btn btn-default btn-file">
-                    Browse <input id="droplet_image" type="file" name="droplet_image" class="btn-file-input">
+                    Upload background image <input id="background_image" type="file" name="background_image" class="btn-file-input">
                 </span>
                 <span class="btn btn-default btn-file">
-                    Browse <input id="basket_image" type="file" name="basket_image" class="btn-file-input">
+                    Upload drop image <input id="droplet_image" type="file" name="droplet_image" class="btn-file-input">
                 </span>
-
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
-            <hr>
-
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-        <div class="col-md-offset-1 col-md-9">
-            <button type="button"
-                    class="btn btn-default waves-effect waves-light"
-                    onclick="location.href='/game/create';">
-                Done
-            </button>
+                <span class="btn btn-default btn-file">
+                    Upload player image <input id="basket_image" type="file" name="basket_image" class="btn-file-input">
+                </span>
         </div>
     </div>
 
     <hr>
 
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <button type="submit" class="btn btn-default">Create Your Game</button>
+        </div>
+    </div>
+    </form>
+
 </div>
-<!-- /.container -->
-
-<!-- Footer -->
-
 
 <!-- SCRIPTS -->
 
