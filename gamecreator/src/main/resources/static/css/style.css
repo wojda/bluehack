@@ -1,0 +1,46 @@
+html,
+body {
+    height: 100%;
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+
+.carousel {
+    margin-top: -20px;
+}
+
+.item:nth-child(1) {
+    background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/kfi2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(2) {
+    background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/kfi3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(3) {
+    background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/kfi5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+footer.page-footer {
+    margin-top: 0;
+}
+    
+.navbar {
+    z-index: 10;
+}
