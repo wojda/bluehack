@@ -19,7 +19,7 @@ body {
 }
 
 .item:nth-child(1) {
-    background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/kfi2.jpg);
+    background-image: url(/img/start_slide.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -60,4 +60,8 @@ table {
     border-collapse: separate;
     border-spacing: 0px;
     border-color: grey;
+}
+
+.start-slide {
+    padding-bottom: 320px;
 }
