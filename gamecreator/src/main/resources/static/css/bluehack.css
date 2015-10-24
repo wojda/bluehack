@@ -20,23 +20,6 @@ p.info {
     margin-right: auto;
 }
 
-.animated-link {
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}}
-
-.animated {
-    -webkit-animation-name: pulse;
-    -moz-animation-name: pulse;
-    -webkit-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-}
-
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -56,3 +39,4 @@ p.info {
     cursor: inherit;
     display: block;
 }
+
