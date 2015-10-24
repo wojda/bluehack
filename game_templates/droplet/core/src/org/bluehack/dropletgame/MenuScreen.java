@@ -17,7 +17,7 @@ public class MenuScreen implements Screen {
 	Stage stage;
 	Game game;
 	
-	public MenuScreen(DropletGame dropletGame) {
+	public MenuScreen(Game dropletGame) {
 		this.game = dropletGame;
 	}
 
@@ -34,7 +34,7 @@ public class MenuScreen implements Screen {
 			
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				game.setScreen(new GameScreen());
+				game.setScreen(new GameScreen(game));
 				
 			}
 		});

@@ -4,13 +4,16 @@ import java.util.Random;
 
 import org.bluehack.dropletgame.asset.Asset;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -19,6 +22,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameScreen implements Screen {
 	
+	private Game game;
 	private Stage stage;
 	private Image player;
 	private Label livesLabel;
@@ -27,18 +31,27 @@ public class GameScreen implements Screen {
 	private int count = 0;
 	private int lives = 3;
 	private Label scoreLabel;
+	private Label levelLabel;
 	private Random random = new Random();
 	private Array<Image> dropletList  = new Array<Image>(); 
+
+	public GameScreen(Game game) {
+		this.game = game;
+	}
 
 	@Override
 	public void show() {
 		stage = new Stage();
 		player = new Image(Asset.player);
+		Image bg = new Image(Asset.bg);
+		bg.setPosition(0, 0);
+		stage.addActor(bg);
 		
 		initGUI();
 		
 		player.setPosition(Gdx.graphics.getWidth()/2 -player.getWidth()/2, 10);
 		stage.addActor(player);
+		
 		InputMultiplexer inputMixer = new InputMultiplexer();
 		
 		InputProcessor input = new Controller(player);
@@ -57,6 +70,14 @@ public class GameScreen implements Screen {
 		table.add(livesLabel).prefWidth(999);
 		table.add(scoreLabel);
 		stage.addActor(table);
+		
+		levelLabel = new Label("LEVEL " + String.valueOf(level), Asset.skin);
+		Color levelLabelColor = levelLabel.getColor();
+		levelLabelColor.a = 0f;
+		levelLabel.addAction(Actions.sequence(Actions.alpha(1f, 0.75f), Actions.delay(0.25f), Actions.alpha(0f, 0.75f)));
+		levelLabel.setPosition(Gdx.graphics.getWidth()/2 - levelLabel.getWidth()/2, Gdx.graphics.getHeight()/2 + levelLabel.getHeight()/2);
+		stage.addActor(levelLabel);
+
 	}
 
 	@Override
@@ -87,14 +108,28 @@ public class GameScreen implements Screen {
 				dropletList.removeValue(drop, true);
 				drop.remove();
 				count++;
+				if (count%5 == 0) {
+					level++;
+					levelLabel.setText("LEVEL " + String.valueOf(level));
+					levelLabel.addAction(Actions.sequence(Actions.alpha(1f, 0.75f), Actions.delay(0.25f), Actions.alpha(0f, 0.75f)));
+				}
 				scoreLabel.setText(String.valueOf(count));
+			}
+			if (drop.getY() <0f) {
+				dropletList.removeValue(drop, true);
+				drop.remove();
+				lives--;
+				if (lives < 0) {
+					game.setScreen(new MenuScreen(game));
+				}
+				livesLabel.setText("lives left: " + String.valueOf(lives));
 			}
 		}
 	}
 
 	private void moveDroplets() {
 		for (Image drop : dropletList) {
-			drop.moveBy(0, -2);
+			drop.moveBy(0, -2 - level * 0.15f);
 		}
 		
 	}
