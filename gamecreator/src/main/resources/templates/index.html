@@ -82,7 +82,7 @@
                     <div data-animation="animated fadeInDown">
                         <h1>Droplet</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <div data-animation="animated fadeInDown">
                         <h1>Arcanoid</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <div data-animation="animated fadeInDown">
                         <h1>Puzzle</h1>
                         <h3>Utwórz własną grę z pomocą paru kliknięć. Wybierz szablon, dodaj własne grafiki i gotowe!</h3>
-                        <a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+                        <a type="button" class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#myModal">Rozpocznij</a>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,27 @@
         </div>
     </footer>
 
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Email</h4>
+					</div>
+					<div class="modal-body">
+						<p>Email</p><input></input>
+						<p>Powtórz email</p><input></input>
+					</div>
+					<div>
+						<a type="button" class="btn btn-success waves-effect waves-light" href="/creator">Rozpocznij</a>
+						<a type="button" class="btn btn-cancel waves-effect waves-light" data-dismiss="modal">Zamknij</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
     <!-- SCRIPTS -->
 
