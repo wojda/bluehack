@@ -40,12 +40,16 @@
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
 
-            <span class="btn btn-default btn-file">
-                Browse <input type="file" class="btn-file-input">
-            </span>
-            <span class="btn btn-default btn-file">
-                Browse <input type="file" class="btn-file-input">
-            </span>
+            <form action="/game/create" method="post" enctype="multipart/form-data">
+                <span class="btn btn-default btn-file">
+                    Browse <input id="droplet_image" type="file" name="droplet_image" class="btn-file-input">
+                </span>
+                <span class="btn btn-default btn-file">
+                    Browse <input id="basket_image" type="file" name="basket_image" class="btn-file-input">
+                </span>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
 
             <hr>
 

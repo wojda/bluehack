@@ -3,9 +3,10 @@ package org.bluehack;
 import org.bluehack.game.CreateNewGameUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.Map;
 
 @Controller
@@ -32,8 +33,22 @@ public class IndexController {
         return "creator";
     }
 
-    @RequestMapping("/game/create")
-    public String createGame() {
+
+    @RequestMapping(value="/game/create", method= RequestMethod.POST)
+    public String createGame(@RequestParam("droplet_image") MultipartFile dropletImage,
+                             @RequestParam("basket_image") MultipartFile basketImage) {
+
+        try {
+            byte[] dropletImageByteArray = dropletImage.getBytes();
+            InputStream dropletImageinputStream = new ByteArrayInputStream(dropletImageByteArray);
+
+            byte[] basketImageByteArray = basketImage.getBytes();
+            InputStream basketImageinputStream = new ByteArrayInputStream(dropletImageByteArray);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return createNewGame.create()
                 .transform(gameId -> "redirect:/play/" + gameId)
                 .or("redirect:/anavailable");
@@ -45,8 +60,8 @@ public class IndexController {
         return "play";
     }
 
-    @RequestMapping("/anavailable")
-    public String anavailable() {
-        return "anavailablegame";
+    @RequestMapping("/unavailable")
+    public String unavailable() {
+        return "unavailablegame";
     }
 }
