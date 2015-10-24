@@ -5,18 +5,18 @@ import com.badlogic.gdx.Screen;
 
 public class DropletGame extends Game {
 	
-	private Screen gameScreen;
+	private Screen menuScreen;
 	
 	@Override
 	public void create() {
-		gameScreen = new GameScreen();
-		this.setScreen(gameScreen);
+		menuScreen = new MenuScreen(this);
+		this.setScreen(menuScreen);
 		
 	}
 	
 	@Override
 	public void dispose() {
-		gameScreen.dispose();
+		menuScreen.dispose();
 	}
 
 }
