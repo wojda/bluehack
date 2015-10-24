@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class IndexController {
@@ -52,9 +53,17 @@ public class IndexController {
                             @RequestParam("droplet_image") MultipartFile dropletImage,
                             @RequestParam("basket_image") MultipartFile basketImage) throws IOException {
 
-        return createNewGame.create(backgroundImage.getInputStream(), dropletImage.getInputStream(), basketImage.getInputStream())
+        return createNewGame(backgroundImage, dropletImage, basketImage)
                 .map(gameId -> "redirect:/play/" + gameId)
                 .orElseGet(() -> "redirect:/anavailable");
+    }
+
+    private Optional<String> createNewGame(MultipartFile backgroundImage, MultipartFile dropletImage, MultipartFile basketImage) throws IOException {
+        if(backgroundImage.isEmpty()) {
+            return createNewGame.create();
+        } else {
+            return createNewGame.create(backgroundImage.getInputStream(), dropletImage.getInputStream(), basketImage.getInputStream());
+        }
     }
 
     @RequestMapping("/play/{gameId}")

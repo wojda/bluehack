@@ -27,6 +27,13 @@ public class CreateNewGameUseCase {
         this.resourceLoader = resourceLoader;
     }
 
+    public Optional<String> create() {
+        String gameId = generateNewGameId();
+
+        return copyGameTemplateToDestination(gameId)
+                .map(gamePath -> gameId);
+    }
+
     public Optional<String> create(InputStream backgroundImage, InputStream dropletImage, InputStream basketImage) {
         String gameId = generateNewGameId();
 
