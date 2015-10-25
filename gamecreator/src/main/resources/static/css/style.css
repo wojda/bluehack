@@ -17,12 +17,17 @@ body {
 .carousel {
     margin-top: -20px;
 }
+#creator-carousel .item:nth-child(1) {
+    background-image: url(http://www.dsogaming.com/wp-content/uploads/2012/02/ForestPlanet-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #game-starting-carousel .item:nth-child(1) {
     background-image: url(/img/start_slide.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 #game-info-carousel .item:nth-child(1) {
     background-image: url(/img/how_to.png);
