@@ -40,6 +40,14 @@ p.info {
     display: block;
 }
 
+.blurred-bcg {
+    position:absolute;
+    -webkit-filter: blur(5px);
+    -webkit-transformation: scale(1.1);
+    overflow: hidden;
+    margin: -5px;
+}
+
 .blue-separator {
     background-color: #3071B8;
 }
