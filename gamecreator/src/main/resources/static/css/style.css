@@ -23,7 +23,7 @@ body {
     background-size: cover;
 }
 
-#game-starting-carousel .item:nth-child(1) {
+#carousel-example-generic .item:nth-child(1) {
     background-image: url(/img/start_slide.png);
     background-repeat: no-repeat;
     background-size: cover;
