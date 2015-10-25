@@ -26,14 +26,16 @@ public class IndexController {
     public String index() {
         return "index";
     }
-    
-    @RequestMapping("/order")
-    public String order() {
+
+    @RequestMapping("/order/{gameId}")
+    public String order(@PathVariable String gameId, Map<String, Object> model) {
+        model.put("gameId", gameId);
         return "order";
     }
 
-    @RequestMapping("/confirm")
-    public String confirm() {
+    @RequestMapping("/confirm/{gameId}")
+    public String confirm(@PathVariable String gameId, Map<String, Object> model) {
+        model.put("gameId", gameId);
         return "confirm";
     }
     
