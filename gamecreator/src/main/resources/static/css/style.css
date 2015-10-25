@@ -17,25 +17,39 @@ body {
 .carousel {
     margin-top: -20px;
 }
-
-.item:nth-child(1) {
+#game-starting-carousel .item:nth-child(1) {
     background-image: url(/img/start_slide.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.item:nth-child(2) {
+
+#game-info-carousel .item:nth-child(1) {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/19/The_Swapper_-_Screenshot_03.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.item:nth-child(3) {
+#game-template-carousel .item:nth-child(1) {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/19/The_Swapper_-_Screenshot_03.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#game-template-carousel .item:nth-child(2) {
+    background-image: url(/img/start_slide.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#game-template-carousel .item:nth-child(3) {
     background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/kfi5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     
 }
+
+
 
 footer.page-footer {
     margin-top: 0;
